@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/styles.css">
+</head>
+
+<body>
+
+<main>
+    <header>
+        <h1>Video Game Catalog</h1>
+    </header>
+    {% for game in games %}
+    <div class="game">
+        <h3>{{ game.name }}</h3>
+        <p>release date: {{ game.firstReleaseDate }}</p>
+    </div>
+    {% endfor %}
+</main>
+</body>
+
+</html>
