@@ -20,6 +20,6 @@ if __name__ == "__main__":
             template.render(
                 upcoming=upcoming,
                 recent=recent,
-                top_games=top_games[:4]
+                top_games=top_games
             )
         )

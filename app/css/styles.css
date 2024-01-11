@@ -45,16 +45,15 @@ p {
     display: grid;
     justify-items: center;
     column-gap: 8px;
-    row-gap: 32px;
+    row-gap: 64px;
     grid-template-columns: repeat(4, 1fr);
-    margin-bottom: 128px;;
+    margin-bottom: 128px;
 }
 
-.img-container {
-    width: 288px;
-    height: 432px;
+.game {
     position: relative;
-    margin: 0;
+    min-width: 280px;
+    max-width: 384px;
 }
 
 .image {
@@ -70,7 +69,7 @@ p {
     right: 0;
     color: #9bf00b;
     background: rgba(0, 0, 0, 0.5);
-    font-size: 20px;
+    font-size: 24px;
     font-family: "Segoe Pro Black", sans-serif;
     padding: 16px;
     text-align: center;
@@ -81,16 +80,47 @@ p {
     bottom: 0;
     color: #fff;
     background: rgba(0, 0, 0, 0.40);
-    font-size: 20px;
+    font-size: 24px;
     font-family: "Segoe Pro Black", sans-serif;
     padding: 16px;
     text-align: center;
     width: 100%;
 }
 
-.top-games-header {
+.games-header {
     margin-top: 128px;
 }
+
+/* horizontal scroll gallery*/
+.hs {
+    display: grid;
+    grid-auto-flow: column;
+    overflow-x: scroll;
+    scroll-snap-type: x proximity;
+    grid-gap: 8px;
+}
+
+.hs:before,
+.hs:after {
+    content: '';
+    width: 10px;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+.no-scrollbar {
+    scrollbar-width: none;
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+
+.no-scrollbar::-webkit-scrollbar {
+    display: none;
+}
+
 
 footer {
     margin: 192px 0 64px 0;
@@ -117,10 +147,5 @@ footer p {
 @media screen and (max-width: 620px) {
     .game-grid {
         grid-template-columns: 1fr;
-    }
-
-    .img-container {
-        width: 336px;
-        height: 504px;
     }
 }
