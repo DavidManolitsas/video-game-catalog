@@ -1,6 +1,6 @@
 @font-face {
     font-family: "Segoe Pro Black";
-    src: url("/app/assets/SegoePro-Black.woff") format("woff");
+    src: url("../assets/SegoePro-Black.woff") format("woff");
 }
 
 * {
@@ -13,7 +13,7 @@ html {
 
 main {
     color: #fff;
-    max-width: 95%;
+    max-width: 92%;
     margin: 0 auto;
     font-family: "Segoe", sans-serif;
 }
@@ -120,7 +120,7 @@ footer p {
     }
 
     .img-container {
-        width: 384px;
-        height: 576px;
+        width: 336px;
+        height: 504px;
     }
 }
