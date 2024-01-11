@@ -1,4 +1,4 @@
-name: Run Music Finder
+name: Build
 
 on:
   push:

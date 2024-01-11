@@ -1,4 +1,4 @@
-name: Run and Deploy Music Finder
+name: Deploy
 
 on:
   push:
