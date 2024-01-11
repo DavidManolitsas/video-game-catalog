@@ -29,5 +29,5 @@ pip3 install -U -r requirements.txt
 Run the project with:
 
 ```shell
-python3 -m games
+python3 -m games -k $OPEN_CRITIC_API_KEY
 ```

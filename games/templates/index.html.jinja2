@@ -14,12 +14,33 @@
     <header>
         <h1>Video Game Catalog</h1>
     </header>
-    {% for game in games %}
-    <div class="game">
-        <h3>{{ game.name }}</h3>
-        <p>release date: {{ game.firstReleaseDate }}</p>
+    <h2>Recent Releases</h2>
+    <div class="game-grid">
+        {% for game in recent %}
+        <div class="game">
+            <h3>{{ game.name }}</h3>
+            <p class="date">{{ game.firstReleaseDate }}</p>
+            <a href="https://opencritic.com/game/{{ game.id }}/{{ game.name.lower().replace(' ', '-') }}">
+            <img src="https://img.opencritic.com/{{ game.images.box.og }}">
+            </a>
+        </div>
+        {% endfor %}
     </div>
-    {% endfor %}
+    <h2>Upcoming Releases</h2>
+    <div class="game-grid">
+        {% for game in games %}
+        <div class="game">
+            <h3>{{ game.name }}</h3>
+            <p class="date">{{ game.firstReleaseDate }}</p>
+            <a href="https://opencritic.com/game/{{ game.id }}/{{ game.name.lower().replace(' ', '-') }}">
+            <img src="https://img.opencritic.com/{{ game.images.box.og }}">
+            </a>
+        </div>
+        {% endfor %}
+    </div>
+    <footer>
+        <p>Created by David Manolitsas</p>
+    </footer>
 </main>
 </body>
 

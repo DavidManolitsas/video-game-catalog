@@ -11,12 +11,13 @@ if __name__ == "__main__":
 
     service = OpenCriticService(app_key=args.key)
     releases = service.get_upcoming_releases()
+    recent = service.get_recently_released_games()
 
-    if releases:
-        template = get_template(file_name="index.html.jinja2")
-        with open(f"app/index.html", "w", encoding="UTF-8") as file:
-            file.write(
-                template.render(
-                    games=releases
-                )
+    template = get_template(file_name="index.html.jinja2")
+    with open(f"app/index.html", "w", encoding="UTF-8") as file:
+        file.write(
+            template.render(
+                games=releases,
+                recent=recent
             )
+        )
