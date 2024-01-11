@@ -16,34 +16,52 @@
     <header>
         <h1>Video Game Catalog</h1>
     </header>
-    <h2>Top Games of 2023</h2>
-    <ul class="top-game-list">
-        {% for top_game in top_games %}
-        <li class="top-game"><span class="score">{{ top_game.topCriticScore }}</span> {{ top_game.name }}</li>
-        {% endfor %}
-    </ul>
+    <p>
+        With multiple new releases every week you don't want to miss the most anticipated upcoming games. This Video Game Catalog
+        highlights all the top releases in gaming that are coming soon.
+    </p>
     <h2>Recent Releases</h2>
     <div class="game-grid">
         {% for game in recent %}
-        <div class="game">
-            <h3>{{ game.name }}</h3>
-            <p class="date">{{ game.firstReleaseDate }}</p>
-            <a href="https://opencritic.com/game/{{ game.id }}/{{ game.name.lower().replace(' ', '-') }}">
-            <img src="https://img.opencritic.com/{{ game.images.box.og }}">
-            </a>
-        </div>
+            <div class="game">
+                <div class="img-container">
+                    <a href="https://opencritic.com/game/{{ game.id }}/{{ game.name.lower().replace(' ', '-') }}">
+                        <img class="image" src="https://img.opencritic.com/{{ game.images.box.og }}">
+                        <div class="score-overlay">{{ game.topCriticScore }}</div>
+                    </a>
+                </div>
+            </div>
         {% endfor %}
     </div>
     <h2>Upcoming Releases</h2>
     <div class="game-grid">
-        {% for game in games %}
-        <div class="game">
-            <h3>{{ game.name }}</h3>
-            <p class="date">{{ game.firstReleaseDate }}</p>
-            <a href="https://opencritic.com/game/{{ game.id }}/{{ game.name.lower().replace(' ', '-') }}">
-            <img src="https://img.opencritic.com/{{ game.images.box.og }}">
-            </a>
-        </div>
+        {% for game in upcoming %}
+            <div class="game">
+                <div class="img-container">
+                    <a href="https://opencritic.com/game/{{ game.id }}/{{ game.name.lower().replace(' ', '-') }}">
+                        <img class="image" src="https://img.opencritic.com/{{ game.images.box.og }}">
+                        <div class="date-overlay">{{ game.firstReleaseDate }}</div>
+                    </a>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+    <div class="top-games-header">
+        <h1>LOOKS BETTER,<br>SOUNDS BETTER,<br><span class="xbox-green">PLAYS BETTER</span><br></h1>
+        <p>
+            Here are the best games of the past year.
+        </p>
+    </div>
+    <div class="game-grid">
+        {% for game in top_games %}
+            <div class="game">
+                <div class="img-container">
+                    <a href="https://opencritic.com/game/{{ game.id }}/{{ game.name.lower().replace(' ', '-') }}">
+                        <img class="image" src="https://img.opencritic.com/{{ game.images.box.og }}">
+                        <div class="score-overlay">{{ game.topCriticScore }}</div>
+                    </a>
+                </div>
+            </div>
         {% endfor %}
     </div>
     <footer>
