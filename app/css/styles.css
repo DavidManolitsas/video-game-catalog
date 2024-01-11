@@ -1,3 +1,11 @@
+@font-face {
+    font-family: "Segoe Pro Black";
+    src: url("/app/assets/SegoePro-Black.woff") format("woff");
+}
+
+* {
+    box-sizing: border-box;
+}
 
 html {
     background-color: #000;
@@ -5,45 +13,83 @@ html {
 
 main {
     color: #fff;
-    max-width: 90%;
+    max-width: 95%;
     margin: 0 auto;
     font-family: "Segoe", sans-serif;
 }
 
 h1 {
-    font-weight: 700;
+    font-weight: 100;
     font-size: 62px;
     line-height: 72px;
+    font-family: "Segoe Pro Black", sans-serif;
 }
 
 h2 {
-    font-weight: 700;
+    font-weight: bold;
     font-size: 34px;
     line-height: 40px;
+}
+
+p {
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 28px;
+}
+
+.xbox-green {
+    color: #9bf00b;
 }
 
 .game-grid {
     display: grid;
     justify-items: center;
-    gap: 8px;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
+    column-gap: 8px;
+    row-gap: 32px;
+    grid-template-columns: repeat(4, 1fr);
+    margin-bottom: 128px;;
 }
 
-.game a img:hover {
-    padding: 2px;
-    border: solid 2px #9bf00b;
-    border-radius: 16px;
-}
-
-.game img {
+.img-container {
     width: 288px;
     height: 432px;
-    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
-    border-radius: 16px;
+    position: relative;
+    margin: 0;
 }
 
-.date {
+.image {
+    display: block;
+    width: 100%;
+    height: auto;
+    mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1) 80%, transparent 100%);
+}
+
+.score-overlay {
+    position: absolute;
+    top: 0;
+    right: 0;
     color: #9bf00b;
+    background: rgba(0, 0, 0, 0.5);
+    font-size: 20px;
+    font-family: "Segoe Pro Black", sans-serif;
+    padding: 16px;
+    text-align: center;
+}
+
+.date-overlay {
+    position: absolute;
+    bottom: 0;
+    color: #fff;
+    background: rgba(0, 0, 0, 0.40);
+    font-size: 20px;
+    font-family: "Segoe Pro Black", sans-serif;
+    padding: 16px;
+    text-align: center;
+    width: 100%;
+}
+
+.top-games-header {
+    margin-top: 128px;
 }
 
 footer {
@@ -52,20 +98,29 @@ footer {
     opacity: 50%;
 }
 
-@media screen and (max-width: 1400px) {
+footer p {
+    font-size: 16px;
+}
+
+@media screen and (max-width: 1225px) {
     .game-grid {
-        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-columns: repeat(3, 1fr);
     }
 }
 
-@media screen and (max-width: 1060px) {
+@media screen and (max-width: 920px) {
     .game-grid {
-        grid-template-columns: 1fr 1fr;
+        grid-template-columns: repeat(2, 1fr);
     }
 }
 
-@media screen and (max-width: 720px) {
+@media screen and (max-width: 620px) {
     .game-grid {
         grid-template-columns: 1fr;
+    }
+
+    .img-container {
+        width: 384px;
+        height: 576px;
     }
 }
