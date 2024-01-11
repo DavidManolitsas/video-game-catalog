@@ -16,6 +16,12 @@
     <header>
         <h1>Video Game Catalog</h1>
     </header>
+    <h2>Top Games of 2023</h2>
+    <ul class="top-game-list">
+        {% for top_game in top_games %}
+        <li class="top-game"><span class="score">{{ top_game.topCriticScore }}</span> {{ top_game.name }}</li>
+        {% endfor %}
+    </ul>
     <h2>Recent Releases</h2>
     <div class="game-grid">
         {% for game in recent %}

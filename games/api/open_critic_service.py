@@ -33,3 +33,8 @@ class OpenCriticService:
     def get_game_by_id(self, game_id):
         response = get(url=f"{self.base_url}/game/{game_id}", headers=self.headers)
         return response
+
+    def get_highest_rated_games(self):
+        # Around February the {year} from the query can be removed
+        response = get(url=f"{self.base_url}/game/hall-of-fame/2023", headers=self.headers)
+        return response
