@@ -37,6 +37,10 @@ p {
     line-height: 28px;
 }
 
+a {
+    text-decoration: none;
+}
+
 .xbox-green {
     color: #9bf00b;
 }
@@ -61,6 +65,22 @@ p {
     width: 100%;
     height: auto;
     mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1) 80%, transparent 100%);
+}
+
+.game-link {
+    color: #fff;
+    height: 100%;
+    background-color: #201f24;
+    padding: 64px 16px;
+}
+
+.game-link h1 {
+    margin: 0;
+    font-size: 48px;
+}
+
+.game-link:hover {
+    color: #9bf00b;
 }
 
 .score-overlay {

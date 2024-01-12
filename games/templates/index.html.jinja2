@@ -28,7 +28,13 @@
         {% for game in recent %}
             <div class="game">
                 <a href="https://opencritic.com/game/{{ game.id }}/{{ game.name.lower().replace(' ', '-') }}">
-                    <img class="image" src="https://img.opencritic.com/{{ game.images.box.og }}">
+                    {% if game.images.box.og %}
+                    <img class="image" src="https://img.opencritic.com/{{ game.images.box.og }}" alt="{{ game.name }} box art">
+                    {% else %}
+                    <div class="game-link">
+                        <h1>{{ game.name }}</h1>
+                    </div>
+                    {% endif %}
                     <div class="score-overlay">{{ game.topCriticScore }}</div>
                 </a>
             </div>
@@ -45,7 +51,13 @@
         {% for game in upcoming %}
             <div class="game">
                 <a href="https://opencritic.com/game/{{ game.id }}/{{ game.name.lower().replace(' ', '-') }}">
-                    <img class="image" src="https://img.opencritic.com/{{ game.images.box.og }}">
+                    {% if game.images.box.og %}
+                    <img class="image" src="https://img.opencritic.com/{{ game.images.box.og }}" alt="{{ game.name }} box art">
+                    {% else %}
+                    <div class="game-link">
+                        <h1>{{ game.name }}</h1>
+                    </div>
+                    {% endif %}
                     <div class="date-overlay">{{ game.firstReleaseDate }}</div>
                 </a>
             </div>
@@ -62,7 +74,13 @@
             {% for game in top_games %}
             <li class="game">
                 <a href="https://opencritic.com/game/{{ game.id }}/{{ game.name.lower().replace(' ', '-') }}">
-                    <img class="image" src="https://img.opencritic.com/{{ game.images.box.og }}">
+                    {% if game.images.box.og %}
+                    <img class="image" src="https://img.opencritic.com/{{ game.images.box.og }}" alt="{{ game.name }} box art">
+                    {% else %}
+                    <div class="game-link">
+                        <h1>{{ game.name }}</h1>
+                    </div>
+                    {% endif %}
                     <div class="score-overlay">{{ game.topCriticScore }}</div>
                 </a>
             </li>
