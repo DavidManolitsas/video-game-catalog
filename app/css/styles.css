@@ -45,6 +45,10 @@ p {
 
 li {
     margin: 16px 0;
+    padding: 8px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 li a {
