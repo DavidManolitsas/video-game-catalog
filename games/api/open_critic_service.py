@@ -38,3 +38,13 @@ class OpenCriticService:
         # Around February the {year} from the query can be removed
         response = get(url=f"{self.base_url}/game/hall-of-fame/2023", headers=self.headers)
         return response
+
+    def get_recently_reviewed_games(self):
+        response = get(url=f"{self.base_url}/game/reviewed-this-week", headers=self.headers)
+        for game in response:
+            score = game["topCriticScore"]
+            if score == -1:
+                game["topCriticScore"] = "??"
+            else:
+                game["topCriticScore"] = round(score)
+        return response

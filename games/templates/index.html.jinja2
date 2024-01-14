@@ -17,57 +17,91 @@
     <header>
         <h1>Video Game Catalog</h1>
     </header>
-    <p>
-        With multiple new video game releases every week, you don't want
-        to miss the most anticipated games coming soon.
-        This <span class="xbox-green">Video Game Catalog</span>
-        highlights the latest releases, upcoming games and the highest rated games of the past year.
-    </p>
-    <h2>Recent Releases</h2>
-    <div class="game-grid">
-        {% for game in recent %}
-            <div class="game">
-                <a href="https://opencritic.com/game/{{ game.id }}/{{ game.name.lower().replace(' ', '-') }}">
-                    <img class="image" src="https://img.opencritic.com/{{ game.images.box.og }}">
-                    <div class="score-overlay">{{ game.topCriticScore }}</div>
-                </a>
-            </div>
-        {% endfor %}
-    </div>
-    <div class="games-header">
-        <h1><span class="xbox-green">MORE PLAYING,</span><br>LESS WAITING<br></h1>
+    <div class="content-wrap">
         <p>
-            Explore rich new worlds and immerse yourself with your favourite characters, inspiring worlds
-            and groundbreaking gameplay with these upcoming releases.
+            With multiple new video game releases every week, you don't want
+            to miss the most anticipated games coming soon.
+            This <span class="xbox-green">Video Game Catalog</span>
+            highlights the latest releases, upcoming games and the highest rated games of the past year.
         </p>
-    </div>
-    <div class="game-grid">
-        {% for game in upcoming %}
-            <div class="game">
-                <a href="https://opencritic.com/game/{{ game.id }}/{{ game.name.lower().replace(' ', '-') }}">
-                    <img class="image" src="https://img.opencritic.com/{{ game.images.box.og }}">
-                    <div class="date-overlay">{{ game.firstReleaseDate }}</div>
-                </a>
-            </div>
-        {% endfor %}
-    </div>
-    <div class="games-header">
-        <h1>LOOKS BETTER,<br>SOUNDS BETTER,<br><span class="xbox-green">PLAYS BETTER</span><br></h1>
-        <p>
-            Embark on new adventures the way they’re meant to be experienced, here are the best games of the past year.
-        </p>
-    </div>
-    <div class="scroll-container">
-        <ul class="hs no-scrollbar">
-            {% for game in top_games %}
-            <li class="game">
-                <a href="https://opencritic.com/game/{{ game.id }}/{{ game.name.lower().replace(' ', '-') }}">
-                    <img class="image" src="https://img.opencritic.com/{{ game.images.box.og }}">
-                    <div class="score-overlay">{{ game.topCriticScore }}</div>
-                </a>
-            </li>
+        <h2>Recent Releases</h2>
+        <div class="game-grid">
+            {% for game in recent %}
+                <div class="game">
+                    <a href="https://opencritic.com/game/{{ game.id }}/{{ game.name.lower().replace(' ', '-') }}">
+                        {% if game.images.box.og %}
+                            <img class="image" src="https://img.opencritic.com/{{ game.images.box.og }}" alt="{{ game.name }} box art">
+                        {% else %}
+                            <div class="game-link">
+                                <h1>{{ game.name }}</h1>
+                            </div>
+                        {% endif %}
+                        <div class="score-overlay">{{ game.topCriticScore }}</div>
+                    </a>
+                </div>
             {% endfor %}
-        </ul>
+        </div>
+        <div class="reviewed-games">
+            <h2>Recently Reviewed</h2>
+            <uL>
+                {% for game in recently_reviewed %}
+                    <li>
+                        <span class="score">{{ game.topCriticScore }}</span>
+                        <a href="https://opencritic.com/game/{{ game.id }}/{{ game.name.lower().replace(' ', '-') }}">{{ game.name }}</a></li>
+                {% endfor %}
+            </uL>
+        </div>
+    </div>
+    <div class="content-wrap">
+        <div class="games-header">
+            <h1><span class="xbox-green">MORE PLAYING,</span><br>LESS WAITING<br></h1>
+            <p>
+                Explore rich new worlds and immerse yourself with your favourite characters, inspiring worlds
+                and groundbreaking gameplay with these upcoming releases.
+            </p>
+        </div>
+        <div class="game-grid">
+            {% for game in upcoming %}
+                <div class="game">
+                    <a href="https://opencritic.com/game/{{ game.id }}/{{ game.name.lower().replace(' ', '-') }}">
+                        {% if game.images.box.og %}
+                            <img class="image" src="https://img.opencritic.com/{{ game.images.box.og }}" alt="{{ game.name }} box art">
+                        {% else %}
+                            <div class="game-link">
+                                <h1>{{ game.name }}</h1>
+                            </div>
+                        {% endif %}
+                        <div class="date-overlay">{{ game.firstReleaseDate }}</div>
+                    </a>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+    <div class="content-wrap">
+        <div class="games-header">
+            <h1>LOOKS BETTER,<br>SOUNDS BETTER,<br><span class="xbox-green">PLAYS BETTER</span><br></h1>
+            <p>
+                Embark on new adventures the way they’re meant to be experienced, here are the best games of the past year.
+            </p>
+        </div>
+        <div class="scroll-container">
+            <ul class="hs no-scrollbar">
+                {% for game in top_games %}
+                    <li class="game">
+                        <a href="https://opencritic.com/game/{{ game.id }}/{{ game.name.lower().replace(' ', '-') }}">
+                            {% if game.images.box.og %}
+                                <img class="image" src="https://img.opencritic.com/{{ game.images.box.og }}" alt="{{ game.name }} box art">
+                            {% else %}
+                                <div class="game-link">
+                                    <h1>{{ game.name }}</h1>
+                                </div>
+                            {% endif %}
+                            <div class="score-overlay">{{ game.topCriticScore }}</div>
+                        </a>
+                    </li>
+                {% endfor %}
+            </ul>
+        </div>
     </div>
     <footer>
         <p>Created by David Manolitsas</p>
