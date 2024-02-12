@@ -11,7 +11,6 @@ class OpenCriticService:
             "X-RapidAPI-Host": "opencritic-api.p.rapidapi.com"
         }
 
-
     def get_upcoming_releases(self) -> dict:
         response = get(url=f"{self.base_url}/game/upcoming", headers=self.headers)
         for game in response:
@@ -27,6 +26,13 @@ class OpenCriticService:
             game["firstReleaseDate"] = datetime.strptime(
                 game["firstReleaseDate"], "%Y-%m-%dT%H:%M:%S.%fZ"
             ).strftime("%d %B %Y")
+
+            # handle top critic score
+            score = game["topCriticScore"]
+            if score == -1:
+                game["topCriticScore"] = "??"
+            else:
+                game["topCriticScore"] = round(score)
 
         return response
 
