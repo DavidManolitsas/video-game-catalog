@@ -89,7 +89,7 @@
                 {% for game in top_games %}
                     <li class="game">
                         <a href="https://opencritic.com/game/{{ game.id }}/{{ game.name.lower().replace(' ', '-') }}">
-                            {% if game.images.box.og %}
+                            {% if game.get('images', {}).get('box', {}).get('og', {}) %}
                                 <img class="image" src="https://img.opencritic.com/{{ game.images.box.og }}" alt="{{ game.name }} box art">
                             {% else %}
                                 <div class="game-link">

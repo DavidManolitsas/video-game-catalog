@@ -42,7 +42,7 @@ class OpenCriticService:
 
     def get_highest_rated_games(self):
         # Around February the {year} from the query can be removed
-        response = get(url=f"{self.base_url}/game/hall-of-fame/2023", headers=self.headers)
+        response = get(url=f"{self.base_url}/game/hall-of-fame", headers=self.headers)
         return response
 
     def get_recently_reviewed_games(self):

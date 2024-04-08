@@ -110,11 +110,13 @@ a {
     height: 100%;
     background-color: #201f24;
     padding: 64px 16px;
+    width: 100%;
 }
 
 .game-link h1 {
     margin: 0;
     font-size: 48px;
+    white-space: initial;
 }
 
 .game-link:hover {
