@@ -1,5 +1,12 @@
 # Video Game Catalog
 
+This is a python application that generates a single page application. 
+Highlighting the latest video games releases, upcoming games, 
+recently reviewed games and the best games released of the past year.
+
+To view the latest deployed web page visit: 
+https://davidmanolitsas.github.io/video-game-catalog/
+
 ## Setup Project
 
 Install virtualenv package with pip:
